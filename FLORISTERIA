@@ -1,0 +1,195 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNlQ39iIJ7jCPy7NplO+155",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/mtarazona23/PROGCOM-B/blob/main/FLORISTERIA\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "id": "9T8g6wX7jRtK"
+      },
+      "outputs": [],
+      "source": [
+        "flores={\"tipo\":[\"rosa\",\"tulipán\",\"girasol\",\"amapola\",\"lirio\"],\n",
+        "        \"cantidad\":[1,17,3,8,5],\n",
+        "        \"precio\":[4000,80000,5000,15000,23000]\n",
+        "        }"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Primera posición\n",
+        "flores[\"tipo\"][0]"
+      ],
+      "metadata": {
+        "id": "Is2UnBw8rPC0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Ultima posición\n",
+        "flores[\"tipo\"][-1]"
+      ],
+      "metadata": {
+        "id": "7pvciwTPqqbM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Posición dependiendo del valor\n",
+        "flores[\"precio\"].index(80000)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Bw8uToEKrVdz",
+        "outputId": "b21a4d36-8999-4f9f-fade-ee9d2f93a4e4"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Bienvenido a CandyFlowers\")\n",
+        "print(\"Menú\")\n",
+        "\n",
+        "while True:\n",
+        "  print(\"Qué desea hacer?\")\n",
+        "  print(\"1. Visualizar nuestras flores\")\n",
+        "  print(\"2. Comprar\")\n",
+        "  print(\"3. Pagar\")\n",
+        "  print(\"4. Factura\")\n",
+        "  print(\"5. Salir\")\n",
+        "\n",
+        "  opc=int(input(\"Ingrese su opción\\n\"))\n",
+        "  match opc:\n",
+        "    case 1:\n",
+        "      print(\"Estas son nuestras flores\")\n",
+        "      print(f\"{\"Flores\":<15}|{\"Cantidad\":<10}|{\"Precio\":<15}\")\n",
+        "      for tipo,cantidad,precio in zip(flores[\"tipo\"],flores[\"cantidad\"],flores[\"precio\"]):\n",
+        "        print(f\"{tipo.capitalize():<15}|{cantidad:<10}|{precio:<15}\")\n",
+        "      pass\n",
+        "    case 2:\n",
+        "      pass\n",
+        "    case 3:\n",
+        "      carrito={\"tipo\":[\"girasol\",\"lirio\"],\n",
+        "               \"cantidad\":[5,13],\n",
+        "               \"precio\":[5000,23000]\n",
+        "      }\n",
+        "      print(\"Seleccione el medio de pago\")\n",
+        "      print(\"1. Efectivo\")\n",
+        "      print(\"2. Tarjeta de credito\")\n",
+        "      print(\"3. Tarjeta débito\")\n",
+        "      print(\"4. Otro medio de pago\")\n",
+        "      pago_opc=int(input(\"Seleccione su opción: \\n\"))\n",
+        "\n",
+        "      total_pagar=0\n",
+        "      for i in range(len(\"carrito\"[\"tipo\"])):\n",
+        "        subtotal=carrito[\"cantidad\"][i]*carrito[\"precio\"][i]\n",
+        "        total_pagar +=subtotal\n",
+        "      print(f\"Usted debe pagar {total_pagar}\")\n",
+        "    case 4:\n",
+        "      pass\n",
+        "    case 5:\n",
+        "      pass"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 755
+        },
+        "id": "SmVrg-Gdl6Ag",
+        "outputId": "29b6097b-82b4-4826-95e6-68eb2f7b4dac"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Bienvenido a CandyFlowers\n",
+            "Menú\n",
+            "Qué desea hacer?\n",
+            "1. Visualizar nuestras flores\n",
+            "2. Comprar\n",
+            "3. Pagar\n",
+            "4. Factura\n",
+            "5. Salir\n",
+            "Ingrese su opción\n",
+            "1\n",
+            "Estas son nuestras flores\n",
+            "Flores         |Cantidad  |Precio         \n",
+            "Rosa           |1         |4000           \n",
+            "Tulipán        |17        |80000          \n",
+            "Girasol        |3         |5000           \n",
+            "Amapola        |8         |15000          \n",
+            "Lirio          |5         |23000          \n",
+            "Qué desea hacer?\n",
+            "1. Visualizar nuestras flores\n",
+            "2. Comprar\n",
+            "3. Pagar\n",
+            "4. Factura\n",
+            "5. Salir\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "Interrupted by user",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_607/3997798869.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     10\u001b[0m   \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"5. Salir\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     11\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 12\u001b[0;31m   \u001b[0mopc\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Ingrese su opción\\n\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     13\u001b[0m   \u001b[0mmatch\u001b[0m \u001b[0mopc\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0mcase\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.13/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m   1175\u001b[0m                 \u001b[0;34m\"raw_input was called, but this frontend does not support input requests.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1176\u001b[0m             )\n\u001b[0;32m-> 1177\u001b[0;31m         return self._input_request(\n\u001b[0m\u001b[1;32m   1178\u001b[0m             \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mprompt\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1179\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"shell\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.13/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m   1217\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1218\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1219\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1220\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1221\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ]
+    }
+  ]
+}
